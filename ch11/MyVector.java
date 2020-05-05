@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class MyVector {
-	Vector v = null;
+public class MyVector implements List {
+	
 //	Object[] objArr;
 	Object[] data = null;
 	int capacity = 0;
@@ -23,7 +23,7 @@ public class MyVector {
 			setCapacity(minCapacity);
 	}
 	
-	boolean add(Object obj) {
+	public boolean add(Object obj) {
 		ensureCapacity(size+1);
 		data[size++] = obj;
 //		size++;
@@ -86,9 +86,9 @@ public class MyVector {
 		return result;
 	}
 	
-	int size() { return size;}
-	int capacity() { return data.length; }
-	boolean isEmpty() { return size==0; }
+	public int size() { return size;}
+	public int capacity() { return data.length; }
+	public boolean isEmpty() { return size==0; }
 	
 /**********************************************/
 /*         List인터페이스로부터 상속받은 메서드들            */
@@ -159,7 +159,7 @@ public class MyVector {
 //	default Spliterator spliterator() {}
 //	default void replaceAll(UnaryOperator operator) {}
 	
-	int indexOf(Object obj) {
+	public int indexOf(Object obj) {
 		for(int i=0;i<size; i++)
 			if(data[i].equals(obj))
 				return i;
